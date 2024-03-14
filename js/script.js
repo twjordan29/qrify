@@ -36,3 +36,56 @@ function generateQR() {
     qrCodeImage.style.textAlign = "center";
   }
 }
+
+const urlQrBtn = document.getElementById("urlQrBtn");
+const waQrBtn = document.getElementById("waQrBtn");
+const urlQrDiv = document.getElementById("urlQrDiv");
+const waQrDiv = document.getElementById("waQrDiv");
+
+urlQrBtn.addEventListener("click", () => {
+  urlQrDiv.style.display = "block";
+  waQrDiv.style.display = "none";
+});
+
+waQrBtn.addEventListener("click", () => {
+  waQrDiv.style.display = "block";
+  urlQrDiv.style.display = "none";
+});
+
+function generateWhatsAppQR() {
+  const phoneNumber = document.getElementById("phoneNumber").value;
+  const message = document.getElementById("message").value;
+  const waqrSize = document.getElementById("waqrSize").value;
+  const waqrColor = document.getElementById("waqrColor").value;
+  const waqrBackgroundColor = document.getElementById(
+    "waqrBackgroundColor"
+  ).value;
+  const waerror = document.getElementById("waerror");
+
+  if (phoneNumber.trim() === "" || message.trim() === "") {
+    waerror.style.display = "block";
+    waerror.innerHTML = "Please enter a valid phone number and message.";
+    setTimeout(() => {
+      waerror.style.display = "none";
+    }, 5000);
+    return;
+  }
+
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+    message
+  )}`;
+
+  const waqrCodeContainer = document.getElementById("waQrCode");
+  waqrCodeContainer.innerHTML = "";
+
+  const waqrCode = new QRCode(waqrCodeContainer, {
+    text: whatsappUrl,
+    width: waqrSize,
+    height: waqrSize,
+    colorDark: waqrColor,
+    colorLight: waqrBackgroundColor,
+    correctLevel: QRCode.CorrectLevel.H,
+  });
+
+  document.getElementById("waDownloadBtn").style.display = "block"; // Show download button
+}

@@ -53,6 +53,37 @@ input[type="color"] {
   cursor: pointer;
 }
 
+select {
+  display: block;
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #869ab8;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0.1rem solid #e3ecf2;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+textarea {
+  display: block;
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #869ab8;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0.1rem solid #e3ecf2;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease-in-out;
+  font-family: "Nunito Sans", sans-serif;
+}
+
 label {
   display: block;
   margin-bottom: 0.5rem;
@@ -63,7 +94,6 @@ label {
 }
 
 button {
-  display: block;
   width: 100%;
   padding: 0.75rem 1rem;
   font-size: 1rem;
@@ -107,7 +137,7 @@ img {
   }
 }
 
-#error {
+.error {
   color: red;
   font-size: 0.8rem;
   margin-top: 0.5rem;
@@ -123,4 +153,15 @@ footer {
 footer a {
   color: #506690;
   text-decoration: none;
+}
+
+.qr-srv {
+  display: flex;
+  justify-content: space-between; /* Distribute space evenly between the buttons */
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.qr-srv button {
+  margin-right: 2px; /* Add right margin to create space between buttons */
 }
