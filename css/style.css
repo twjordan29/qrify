@@ -32,7 +32,7 @@ body {
 input[type="text"],
 input[type="number"] {
   display: block;
-  width: calc(100% - 1.5rem); /* Adjust the width to leave space for padding */
+  width: calc(100% - 1.5rem);
   padding: 0.6rem 0.75rem;
   font-size: 1rem;
   font-weight: 300;
@@ -46,11 +46,11 @@ input[type="number"] {
 }
 
 input[type="color"] {
-  border: 1px solid #ccc; /* Border color */
-  border-radius: 4px; /* Border radius */
-  padding: 6px; /* Padding */
-  background: #fff; /* Background color */
-  cursor: pointer; /* Cursor style */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 6px;
+  background: #fff;
+  cursor: pointer;
 }
 
 label {
@@ -93,8 +93,6 @@ img {
   max-width: 100%;
   height: auto;
 }
-
-/* container small screens */
 
 @media (max-width: 600px) {
   .container {
