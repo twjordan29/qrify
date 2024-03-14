@@ -87,5 +87,5 @@ function generateWhatsAppQR() {
     correctLevel: QRCode.CorrectLevel.H,
   });
 
-  document.getElementById("waDownloadBtn").style.display = "block"; // Show download button
+  document.getElementById("waDownloadBtn").style.display = "block";
 }
