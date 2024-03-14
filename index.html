@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="css/style.css?v=<?php echo time(); ?>" />
+    <script src="qrcode.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 class="ac tg">QRify</h1>
+      <div class="mb-3">
+        <label for="qrData">Enter URL</label>
+        <input type="text" id="qrData" placeholder="https://" />
+        <div id="error" style="display: none"></div>
+      </div>
+      <div class="mb-3">
+        <label for="qrSize">QR Code Size (pixels):</label>
+        <input
+          type="number"
+          id="qrSize"
+          placeholder="Enter size"
+          min="100"
+          max="1000"
+          step="100"
+          value="300"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="qrColor">QR Code Color:</label>
+        <input type="color" id="qrColor" value="#000000" />
+      </div>
+      <div class="mb-3">
+        <label for="qrBackgroundColor">Background Color:</label>
+        <input type="color" id="qrBackgroundColor" value="#ffffff" />
+      </div>
+      <div class="mb-3">
+        <button onclick="generateQR()">Generate QR Code</button>
+      </div>
+      <div class="mb-3">
+        <div class="ac" id="qrCode"></div>
+      </div>
+      <div class="mb-3">
+        <button id="downloadBtn" style="display: none" onclick="downloadQR()">
+          Download QR Code
+        </button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

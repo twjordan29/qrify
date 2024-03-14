@@ -1,0 +1,117 @@
+body {
+  margin: 0;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #506690;
+  text-align: left;
+  background-color: #f0f4fc;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 5px 20px;
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.mb-3 {
+  margin-bottom: 1.5rem;
+}
+
+.ac {
+  text-align: center;
+}
+
+input[type="text"],
+input[type="number"] {
+  display: block;
+  width: calc(100% - 1.5rem); /* Adjust the width to leave space for padding */
+  padding: 0.6rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #869ab8;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0.1rem solid #e3ecf2;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type="color"] {
+  border: 1px solid #ccc; /* Border color */
+  border-radius: 4px; /* Border radius */
+  padding: 6px; /* Padding */
+  background: #fff; /* Background color */
+  cursor: pointer; /* Cursor style */
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #506690;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #fff;
+  background-color: #506690;
+  border: 0;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #3a4d63;
+}
+
+h1 {
+  margin-bottom: 1.5rem;
+  font-size: 3rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #506690;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* container small screens */
+
+@media (max-width: 600px) {
+  .container {
+    width: 90%; /* Adjust width for smaller screens */
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px; /* Increase padding for better spacing on mobile */
+    background-color: white;
+    border-radius: 7px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+  }
+}
+
+#error {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
