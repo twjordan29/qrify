@@ -32,7 +32,7 @@
   <body>
     <div class="container">
       <h1 class="ac tg">QRify</h1>
-      <div class="qr-srv">
+      <div class="qr-srv" id="qrSrv">
         <button id="urlQrBtn"><i class="fa-solid fa-link"></i> URL QR</button>
         <button id="waQrBtn">
           <i class="fa-brands fa-whatsapp"></i> WhatsApp QR
@@ -40,6 +40,7 @@
         <button id="wifiQrBtn"><i class="fa-solid fa-wifi"></i> WiFi QR</button>
       </div>
       <div id="urlQrDiv" style="display: none">
+        <div class="lead ac mb-3">Generate a URL QR code.</div>
         <div class="mb-3">
           <label for="qrData">Enter URL</label>
           <input type="text" id="qrData" placeholder="https://" />
@@ -76,8 +77,12 @@
             Download QR Code
           </button>
         </div>
+        <div class="mb-3">
+          <button class="new-qr">Generate Something Else</button>
+        </div>
       </div>
       <div id="waQrDiv" style="display: none">
+        <div class="lead ac mb-3">Generate a WhatsApp QR code.</div>
         <div class="mb-3">
           <select id="countryCode">
             <option value="+1">+1 (Canada)</option>
@@ -357,6 +362,9 @@
           </button>
         </div>
         <div class="mb-3">
+          <button class="new-qr">Generate Something Else</button>
+        </div>
+        <div class="mb-3">
           <div class="ac" id="waQrCode"></div>
         </div>
         <div class="mb-3">
@@ -370,6 +378,7 @@
         </div>
       </div>
       <div id="wifiQrDiv" style="display: none">
+        <div class="lead ac mb-3">Generate a WiFi QR code.</div>
         <div class="mb-3">
           <label for="wifiSSID">WiFi SSID:</label>
           <input type="text" id="wifiSSID" placeholder="Enter WiFi SSID" />
@@ -413,6 +422,9 @@
         </div>
         <div class="mb-3">
           <button onclick="generateWiFiQR()">Generate WiFi QR Code</button>
+        </div>
+        <div class="mb-3">
+          <button class="new-qr">Generate Something Else</button>
         </div>
         <div class="mb-3">
           <div class="ac" id="wifiQrCode"></div>

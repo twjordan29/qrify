@@ -43,23 +43,28 @@ const urlQrDiv = document.getElementById("urlQrDiv");
 const waQrDiv = document.getElementById("waQrDiv");
 const wifiQrBtn = document.getElementById("wifiQrBtn");
 const wifiQrDiv = document.getElementById("wifiQrDiv");
+const newQrBtns = document.querySelectorAll(".new-qr");
+const qrSrv = document.getElementById("qrSrv");
 
 urlQrBtn.addEventListener("click", () => {
   urlQrDiv.style.display = "block";
   waQrDiv.style.display = "none";
   wifiQrDiv.style.display = "none";
+  qrSrv.style.display = "none";
 });
 
 waQrBtn.addEventListener("click", () => {
   waQrDiv.style.display = "block";
   urlQrDiv.style.display = "none";
   wifiQrDiv.style.display = "none";
+  qrSrv.style.display = "none";
 });
 
 wifiQrBtn.addEventListener("click", () => {
   wifiQrDiv.style.display = "block";
   waQrDiv.style.display = "none";
   urlQrDiv.style.display = "none";
+  qrSrv.style.display = "none";
 });
 
 function generateWhatsAppQR() {
@@ -147,3 +152,9 @@ function downloadWiFiQR() {
   downloadLink.click();
   document.body.removeChild(downloadLink);
 }
+
+newQrBtns.forEach((button) => {
+  button.addEventListener("click", () => {
+    location.reload();
+  });
+});
