@@ -24,6 +24,7 @@
         <button id="waQrBtn">
           <i class="fa-brands fa-whatsapp"></i> WhatsApp QR
         </button>
+        <button id="wifiQrBtn"><i class="fa-solid fa-wifi"></i> WiFi QR</button>
       </div>
       <div id="urlQrDiv" style="display: none">
         <div class="mb-3">
@@ -352,6 +353,64 @@
             onclick="downloadQR()"
           >
             Download QR Code
+          </button>
+        </div>
+      </div>
+      <div id="wifiQrDiv" style="display: none">
+        <div class="mb-3">
+          <label for="wifiSSID">WiFi SSID:</label>
+          <input type="text" id="wifiSSID" placeholder="Enter WiFi SSID" />
+          <div id="wifiError" class="error" style="display: none"></div>
+        </div>
+        <div class="mb-3">
+          <label for="wifiPassword">WiFi Password:</label>
+          <input
+            type="password"
+            id="wifiPassword"
+            placeholder="Enter WiFi Password"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="wifiEncryption">WiFi Encryption:</label>
+          <select id="wifiEncryption">
+            <option value="WPA">WPA/WPA2</option>
+            <option value="WEP">WEP</option>
+            <option value="None">None (Open Network)</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="qrSize">QR Code Size (pixels):</label>
+          <input
+            type="number"
+            id="wifiqrSize"
+            placeholder="Enter size"
+            min="100"
+            max="1000"
+            step="100"
+            value="300"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="wifiqrColor">QR Code Color:</label>
+          <input type="color" id="wifiqrColor" value="#000000" />
+        </div>
+        <div class="mb-3">
+          <label for="wifiqrBackgroundColor">Background Color:</label>
+          <input type="color" id="wifiqrBackgroundColor" value="#ffffff" />
+        </div>
+        <div class="mb-3">
+          <button onclick="generateWiFiQR()">Generate WiFi QR Code</button>
+        </div>
+        <div class="mb-3">
+          <div class="ac" id="wifiQrCode"></div>
+        </div>
+        <div class="mb-3">
+          <button
+            id="wifiDownloadBtn"
+            style="display: none"
+            onclick="downloadWiFiQR()"
+          >
+            Download WiFi QR Code
           </button>
         </div>
       </div>

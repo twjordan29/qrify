@@ -30,7 +30,8 @@ body {
 }
 
 input[type="text"],
-input[type="number"] {
+input[type="number"],
+input[type="password"] {
   display: block;
   width: calc(100% - 1.5rem);
   padding: 0.6rem 0.75rem;

@@ -41,14 +41,24 @@ const urlQrBtn = document.getElementById("urlQrBtn");
 const waQrBtn = document.getElementById("waQrBtn");
 const urlQrDiv = document.getElementById("urlQrDiv");
 const waQrDiv = document.getElementById("waQrDiv");
+const wifiQrBtn = document.getElementById("wifiQrBtn");
+const wifiQrDiv = document.getElementById("wifiQrDiv");
 
 urlQrBtn.addEventListener("click", () => {
   urlQrDiv.style.display = "block";
   waQrDiv.style.display = "none";
+  wifiQrDiv.style.display = "none";
 });
 
 waQrBtn.addEventListener("click", () => {
   waQrDiv.style.display = "block";
+  urlQrDiv.style.display = "none";
+  wifiQrDiv.style.display = "none";
+});
+
+wifiQrBtn.addEventListener("click", () => {
+  wifiQrDiv.style.display = "block";
+  waQrDiv.style.display = "none";
   urlQrDiv.style.display = "none";
 });
 
@@ -88,4 +98,52 @@ function generateWhatsAppQR() {
   });
 
   document.getElementById("waDownloadBtn").style.display = "block";
+}
+
+function generateWiFiQR() {
+  const wifiSSID = document.getElementById("wifiSSID").value;
+  const wifiPassword = document.getElementById("wifiPassword").value;
+  const wifiEncryption = document.getElementById("wifiEncryption").value;
+  const wifiError = document.getElementById("wifiError");
+  const wifiqrBackgroundColor = document.getElementById(
+    "wifiqrBackgroundColor"
+  ).value;
+  const wifiqrColor = document.getElementById("wifiqrColor").value;
+  const wifiqrSize = document.getElementById("wifiqrSize").value;
+
+  if (wifiSSID.trim() === "" || wifiPassword.trim() === "") {
+    wifiError.style.display = "block";
+    wifiError.innerHTML = "Please enter a valid SSID and password.";
+    setTimeout(() => {
+      wifiError.style.display = "none";
+    }, 5000);
+    return;
+  }
+
+  const wifiNetwork = `WIFI:S:${wifiSSID};T:${wifiEncryption};P:${wifiPassword};;`;
+
+  const wifiQrCodeContainer = document.getElementById("wifiQrCode");
+  wifiQrCodeContainer.innerHTML = ""; // Clear previous QR code
+
+  // Generate QR code
+  const wifiQrCode = new QRCode(wifiQrCodeContainer, {
+    text: wifiNetwork,
+    width: wifiqrSize,
+    height: wifiqrSize,
+    colorDark: wifiqrColor,
+    colorLight: wifiqrBackgroundColor,
+    correctLevel: QRCode.CorrectLevel.H,
+  });
+
+  document.getElementById("wifiDownloadBtn").style.display = "block"; // Show download button
+}
+
+function downloadWiFiQR() {
+  const wifiQrCodeElement = document.querySelector("#wifiQrCode img");
+  const downloadLink = document.createElement("a");
+  downloadLink.href = wifiQrCodeElement.src;
+  downloadLink.download = "wifi_qr_code.png";
+  document.body.appendChild(downloadLink);
+  downloadLink.click();
+  document.body.removeChild(downloadLink);
 }
