@@ -44,6 +44,9 @@
       <div id="urlQrDiv" style="display: none">
         <div class="lead ac mb-3">Generate a URL QR code.</div>
         <div class="mb-3">
+          <button class="new-qr">Generate Something Else</button>
+        </div>
+        <div class="mb-3">
           <label for="qrData">Enter URL</label>
           <input type="text" id="qrData" placeholder="https://" />
           <div id="error" class="error" style="display: none"></div>
@@ -79,12 +82,12 @@
             Download QR Code
           </button>
         </div>
-        <div class="mb-3">
-          <button class="new-qr">Generate Something Else</button>
-        </div>
       </div>
       <div id="waQrDiv" style="display: none">
         <div class="lead ac mb-3">Generate a WhatsApp QR code.</div>
+        <div class="mb-3">
+          <button class="new-qr">Generate Something Else</button>
+        </div>
         <div class="mb-3">
           <select id="countryCode">
             <option value="+1">+1 (Canada)</option>
@@ -364,9 +367,6 @@
           </button>
         </div>
         <div class="mb-3">
-          <button class="new-qr">Generate Something Else</button>
-        </div>
-        <div class="mb-3">
           <div class="ac" id="waQrCode"></div>
         </div>
         <div class="mb-3">
@@ -381,6 +381,9 @@
       </div>
       <div id="wifiQrDiv" style="display: none">
         <div class="lead ac mb-3">Generate a WiFi QR code.</div>
+        <div class="mb-3">
+          <button class="new-qr">Generate Something Else</button>
+        </div>
         <div class="mb-3">
           <label for="wifiSSID">WiFi SSID:</label>
           <input type="text" id="wifiSSID" placeholder="Enter WiFi SSID" />
@@ -424,9 +427,6 @@
         </div>
         <div class="mb-3">
           <button onclick="generateWiFiQR()">Generate WiFi QR Code</button>
-        </div>
-        <div class="mb-3">
-          <button class="new-qr">Generate Something Else</button>
         </div>
         <div class="mb-3">
           <div class="ac" id="wifiQrCode"></div>
