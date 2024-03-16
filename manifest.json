@@ -1,0 +1,21 @@
+{
+  "name": "QRify",
+  "short_name": "QRify",
+  "description": "Generate QR codes online with our QR Code Generator. Create custom QR codes for URLs, WhatsApp and more. Easy to use and free.",
+  "icons": [
+    {
+      "src": "img/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "img/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/index.html",
+  "background_color": "#506690",
+  "theme_color": "#506690",
+  "display": "standalone"
+}
