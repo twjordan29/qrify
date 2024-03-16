@@ -1,13 +1,13 @@
 const CACHE_NAME = "qrify-cache-v1";
 const urlsToCache = [
-  "./",
-  "../index.html",
-  "../css/style.css",
-  "../js/script.js",
-  "../js/qrcode.min.js",
-  "../img/favicon.png",
-  "../img/icon-192x192.png",
-  "../img/icon-512x512.png",
+  "/",
+  "/index.html",
+  "/css/style.css",
+  "/js/script.js",
+  "/js/qrcode.min.js",
+  "/img/favicon.png",
+  "/img/icon-192x192.png",
+  "/img/icon-512x512.png",
 ];
 
 self.addEventListener("install", function (event) {
