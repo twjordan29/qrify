@@ -12,6 +12,7 @@ QRify is a simple web application that allows users to generate various types of
   - [WiFi QR Codes](#wifi-qr-codes)
   - [Phone QR Codes](#phone-qr-codes)
   - [Email QR Codes](#email-qr-codes)
+  - [vCard QR Codes](#vcard-qr-codes)
 - [Contributing](#contributing)
 
 ## Features
