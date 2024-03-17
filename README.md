@@ -52,6 +52,10 @@ Generate a phone number QR code. Users can scan it, and it will prompt them to c
 
 Generate an email QR code. Users can scan it, and it will prompt them to compose an email to the specified email address.
 
+### vCard QR Codes
+
+Generate a vCard QR code. Users can scan it, and it will allow them to quickly import your contact information into their address book or contacts app.
+
 ## Contributing
 
 Contributions are welcome! Please fork the repository and submit a pull request with your changes.
