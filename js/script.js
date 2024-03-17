@@ -50,6 +50,8 @@ const phoneQrBtn = document.getElementById("phoneQrBtn");
 const phoneQrDiv = document.getElementById("phoneQrDiv");
 const emailQrBtn = document.getElementById("emailQrBtn");
 const emailQrDiv = document.getElementById("emailQrDiv");
+const vCardBtn = document.getElementById("vCardQrBtn");
+const vCardDiv = document.getElementById("vCardQrDiv");
 
 urlQrBtn.addEventListener("click", () => {
   urlQrDiv.style.display = "block";
@@ -59,6 +61,7 @@ urlQrBtn.addEventListener("click", () => {
   phoneQrDiv.style.display = "none";
   qrSrv2.style.display = "none";
   emailQrDiv.style.display = "none";
+  vCardDiv.style.display = "none";
 });
 
 waQrBtn.addEventListener("click", () => {
@@ -69,6 +72,7 @@ waQrBtn.addEventListener("click", () => {
   phoneQrDiv.style.display = "none";
   qrSrv2.style.display = "none";
   emailQrDiv.style.display = "none";
+  vCardDiv.style.display = "none";
 });
 
 wifiQrBtn.addEventListener("click", () => {
@@ -79,6 +83,7 @@ wifiQrBtn.addEventListener("click", () => {
   phoneQrDiv.style.display = "none";
   qrSrv2.style.display = "none";
   emailQrDiv.style.display = "none";
+  vCardDiv.style.display = "none";
 });
 
 phoneQrBtn.addEventListener("click", () => {
@@ -89,10 +94,23 @@ phoneQrBtn.addEventListener("click", () => {
   qrSrv.style.display = "none";
   qrSrv2.style.display = "none";
   emailQrDiv.style.display = "none";
+  vCardDiv.style.display = "none";
 });
 
 emailQrBtn.addEventListener("click", () => {
   emailQrDiv.style.display = "block";
+  phoneQrDiv.style.display = "none";
+  wifiQrDiv.style.display = "none";
+  waQrDiv.style.display = "none";
+  urlQrDiv.style.display = "none";
+  qrSrv.style.display = "none";
+  qrSrv2.style.display = "none";
+  vCardDiv.style.display = "none";
+});
+
+vCardBtn.addEventListener("click", () => {
+  vCardDiv.style.display = "block";
+  emailQrDiv.style.display = "none";
   phoneQrDiv.style.display = "none";
   wifiQrDiv.style.display = "none";
   waQrDiv.style.display = "none";
@@ -286,6 +304,65 @@ function downloadEmailQR() {
   const downloadLink = document.createElement("a");
   downloadLink.href = emailQrCodeElement.src;
   downloadLink.download = "email_qr_code.png";
+  document.body.appendChild(downloadLink);
+  downloadLink.click();
+  document.body.removeChild(downloadLink);
+}
+
+function generateVCardQR() {
+  // Retrieve values from input fields
+  const vfirstName = document.getElementById("vfirstName").value;
+  const vlastName = document.getElementById("vlastName").value;
+  const vorganization = document.getElementById("vorganization").value;
+  const vjobTitle = document.getElementById("vjobTitle").value;
+  const vTelType = document.getElementById("vTelType").value;
+  const vphone = document.getElementById("vphone").value;
+  const vemail = document.getElementById("vemail").value;
+  const vwebsite = document.getElementById("vwebsite").value;
+  const vaddress = document.getElementById("vaddress").value;
+  const vQrSize = document.getElementById("vCardqrSize").value;
+  const vQrColor = document.getElementById("vCardqrColor").value;
+  const vQrBackgroundColor = document.getElementById(
+    "vCardqrBackgroundColor"
+  ).value;
+
+  // Construct vCard data
+  const vCardData = `BEGIN:VCARD\r\n
+VERSION:3.0\r\n
+N:${vlastName};${vfirstName}\r\n
+FN:${vfirstName} ${vlastName}\r\n
+ORG:${vorganization}\r\n
+TITLE:${vjobTitle}\r\n
+TEL;TYPE=${vTelType}:${vphone}\r\n
+EMAIL:${vemail}\r\n
+URL:${vwebsite}\r\n
+ADR:${vaddress}\r\n
+END:VCARD`;
+
+  // Generate vCard QR code using QRCode.js
+  const vCardQrCodeContainer = document.getElementById("vCardQrCode");
+  vCardQrCodeContainer.innerHTML = "";
+
+  // Create QR code instance
+  const vCardqrCode = new QRCode(vCardQrCodeContainer, {
+    text: vCardData,
+    width: vQrSize,
+    height: vQrSize,
+    colorDark: vQrColor,
+    colorLight: vQrBackgroundColor,
+    correctLevel: QRCode.CorrectLevel.H,
+  });
+
+  // Show download button
+  const downloadBtn = document.getElementById("vCardDownloadBtn");
+  downloadBtn.style.display = "block";
+}
+
+function downloadVCardQR() {
+  const vCardQrCodeElement = document.querySelector("#vCardQrCode img");
+  const downloadLink = document.createElement("a");
+  downloadLink.href = vCardQrCodeElement.src;
+  downloadLink.download = "vCard_qr_code.png";
   document.body.appendChild(downloadLink);
   downloadLink.click();
   document.body.removeChild(downloadLink);
